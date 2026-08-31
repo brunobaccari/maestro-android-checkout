@@ -1,0 +1,12 @@
+appId: ${MAESTRO_APP_ID}
+---
+- tapOn:
+    id: .*:id/nameET
+- inputText: ${MAESTRO_TEST_USER}
+- tapOn:
+    id: .*:id/passwordET
+- inputText: ${MAESTRO_TEST_PASSWORD}
+- hideKeyboard
+- tapOn:
+    id: .*:id/loginBtn
+- assertVisible: Enter a shipping address

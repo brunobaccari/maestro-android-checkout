@@ -1,0 +1,13 @@
+appId: ${MAESTRO_APP_ID}
+---
+- launchApp:
+    clearState: true
+- assertVisible: Products
+- tapOn: Sauce Labs Backpack
+- assertVisible:
+    id: .*:id/cartBt
+- tapOn:
+    id: .*:id/cartBt
+- tapOn: View cart
+- assertVisible: My Cart
+- assertVisible: Sauce Labs Backpack
