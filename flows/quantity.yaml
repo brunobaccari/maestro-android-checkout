@@ -1,0 +1,24 @@
+appId: ${MAESTRO_APP_ID}
+name: Cart total follows item quantity
+---
+- runFlow: helpers/cart.yaml
+- assertVisible:
+    id: .*:id/totalPriceTV
+    text: '\$ 29\.99'
+- tapOn:
+    id: .*:id/plusIV
+- assertVisible:
+    id: .*:id/noTV
+    text: '2'
+- assertVisible:
+    id: .*:id/itemsTV
+    text: 2 items
+- assertVisible:
+    id: .*:id/totalPriceTV
+    text: '\$ 59\.98'
+- tapOn:
+    id: .*:id/minusIV
+- assertVisible:
+    id: .*:id/totalPriceTV
+    text: '\$ 29\.99'
+- takeScreenshot: results/quantity

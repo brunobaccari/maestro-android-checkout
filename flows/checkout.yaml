@@ -1,0 +1,112 @@
+appId: ${MAESTRO_APP_ID}
+name: Complete checkout with shipping and payment review
+---
+- runFlow: helpers/cart.yaml
+- assertVisible:
+    id: .*:id/totalPriceTV
+    text: '\$ 29\.99'
+- tapOn:
+    id: .*:id/cartBt
+- runFlow: helpers/login.yaml
+- scrollUntilVisible:
+    element:
+      id: .*:id/fullNameET
+    direction: DOWN
+- tapOn:
+    id: .*:id/fullNameET
+- inputText: "Portfolio Test"
+- hideKeyboard
+- scrollUntilVisible:
+    element:
+      id: .*:id/address1ET
+    direction: DOWN
+- tapOn:
+    id: .*:id/address1ET
+- inputText: "123 Test Street"
+- hideKeyboard
+- scrollUntilVisible:
+    element:
+      id: .*:id/cityET
+    direction: DOWN
+- tapOn:
+    id: .*:id/cityET
+- inputText: "Limeira"
+- hideKeyboard
+- scrollUntilVisible:
+    element:
+      id: .*:id/zipET
+    direction: DOWN
+- tapOn:
+    id: .*:id/zipET
+- inputText: "13480000"
+- hideKeyboard
+- scrollUntilVisible:
+    element:
+      id: .*:id/countryET
+    direction: DOWN
+- tapOn:
+    id: .*:id/countryET
+- inputText: "Brazil"
+- hideKeyboard
+- scrollUntilVisible:
+    element:
+      id: .*:id/paymentBtn
+    direction: DOWN
+- tapOn:
+    id: .*:id/paymentBtn
+- assertVisible: Enter a payment method
+- scrollUntilVisible:
+    element:
+      id: .*:id/nameET
+    direction: DOWN
+- tapOn:
+    id: .*:id/nameET
+- inputText: "Portfolio Test"
+- hideKeyboard
+- scrollUntilVisible:
+    element:
+      id: .*:id/cardNumberET
+    direction: DOWN
+- tapOn:
+    id: .*:id/cardNumberET
+- inputText: "4111111111111111"
+- hideKeyboard
+- scrollUntilVisible:
+    element:
+      id: .*:id/expirationDateET
+    direction: DOWN
+- tapOn:
+    id: .*:id/expirationDateET
+- inputText: "1230"
+- hideKeyboard
+- scrollUntilVisible:
+    element:
+      id: .*:id/securityCodeET
+    direction: DOWN
+- tapOn:
+    id: .*:id/securityCodeET
+- inputText: "123"
+- hideKeyboard
+- scrollUntilVisible:
+    element:
+      id: .*:id/paymentBtn
+    direction: DOWN
+- tapOn:
+    id: .*:id/paymentBtn
+- assertVisible: Review your order
+- assertVisible: Sauce Labs Backpack
+- scrollUntilVisible:
+    element:
+      id: .*:id/totalAmountTV
+    direction: DOWN
+- assertVisible:
+    id: .*:id/totalAmountTV
+    text: '\$ 35\.98'
+- tapOn:
+    id: .*:id/paymentBtn
+- assertVisible: Checkout Complete
+- assertVisible: Thank you for your order
+- takeScreenshot: results/checkout-complete
+- tapOn: Continue Shopping
+- tapOn: View cart
+- assertVisible: No Items
