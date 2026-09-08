@@ -1,0 +1,20 @@
+appId: ${MAESTRO_APP_ID}
+name: Empty shipping form does not advance to payment
+---
+- runFlow: helpers/cart.yaml
+- tapOn:
+    id: .*:id/cartBt
+- runFlow: helpers/login.yaml
+- scrollUntilVisible:
+    element:
+      id: .*:id/paymentBtn
+    direction: DOWN
+- tapOn:
+    id: .*:id/paymentBtn
+- assertNotVisible: Enter a payment method
+- scrollUntilVisible:
+    element:
+      id: .*:id/fullNameErrorTV
+    direction: UP
+- assertVisible: Please provide your full name.
+- takeScreenshot: results/required-shipping

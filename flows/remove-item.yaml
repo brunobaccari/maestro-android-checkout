@@ -1,0 +1,10 @@
+appId: ${MAESTRO_APP_ID}
+name: Removing the last item clears the cart
+---
+- runFlow: helpers/cart.yaml
+- tapOn:
+    id: .*:id/removeBt
+- assertVisible: No Items
+- assertNotVisible: Sauce Labs Backpack
+- assertNotVisible: Proceed To Checkout
+- takeScreenshot: results/empty-cart

@@ -1,0 +1,18 @@
+appId: ${MAESTRO_APP_ID}
+name: Locked user cannot enter checkout
+---
+- runFlow: helpers/cart.yaml
+- tapOn:
+    id: .*:id/cartBt
+- tapOn:
+    id: .*:id/nameET
+- inputText: ${MAESTRO_LOCKED_USER}
+- tapOn:
+    id: .*:id/passwordET
+- inputText: ${MAESTRO_TEST_PASSWORD}
+- hideKeyboard
+- tapOn:
+    id: .*:id/loginBtn
+- assertVisible: Sorry this user has been locked out.
+- assertNotVisible: Enter a shipping address
+- takeScreenshot: results/locked-user
