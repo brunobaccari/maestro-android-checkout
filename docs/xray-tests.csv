@@ -1,0 +1,9 @@
+Test Case Identifier,Summary,Test Type,Action,Data,Expected Result
+MOB-01,Checkout completion,Manual,Reset app and add a backpack,Official demo APK,Cart shows one backpack and USD 29.99
+MOB-01,Checkout completion,Manual,Log in and fill shipping and demo payment data,Public demo account,Order review shows USD 35.98 including shipping
+MOB-01,Checkout completion,Manual,Place order and return to cart,Fictitious data only,Confirmation is shown and cart is empty
+MOB-02,Quantity updates totals,Manual,Add one backpack and increase quantity to two,Backpack USD 29.99,Quantity is two and total is USD 59.98
+MOB-02,Quantity updates totals,Manual,Decrease quantity to one,,Total returns to USD 29.99
+MOB-03,Remove last cart item,Manual,Add one backpack then remove it,,Empty state is shown and checkout action is absent
+MOB-04,Blocked account,Manual,Start checkout and log in with blocked demo account,MAESTRO_LOCKED_USER,Blocked message is displayed and shipping form is absent
+MOB-05,Required shipping fields,Manual,Log in from checkout and submit an empty shipping form,,Name validation is displayed and payment form remains absent
