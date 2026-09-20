@@ -2,8 +2,19 @@ appId: ${MAESTRO_APP_ID}
 ---
 - launchApp:
     clearState: true
-- assertVisible: Products
-- tapOn: Sauce Labs Backpack
+- extendedWaitUntil:
+    visible: Products
+    timeout: 60000
+- tapOn:
+    id: .*:id/productIV
+    index: 0
+- assertVisible:
+    id: .*:id/productTV
+    text: Sauce Labs Backpack
+- scrollUntilVisible:
+    element:
+      id: .*:id/cartBt
+    direction: DOWN
 - assertVisible:
     id: .*:id/cartBt
 - tapOn:
