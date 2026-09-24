@@ -1,5 +1,7 @@
 appId: ${MAESTRO_APP_ID}
 ---
+- stopApp
+- waitForAnimationToEnd
 - launchApp:
     clearState: true
 - extendedWaitUntil:
