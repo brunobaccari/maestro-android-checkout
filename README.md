@@ -1,5 +1,7 @@
 # Android checkout com Maestro
 
+[English version](README.en.md)
+
 Cinco fluxos no [My Demo App Android 2.3.0](https://github.com/saucelabs/my-demo-app-android/releases/tag/2.3.0), aplicativo público da Sauce Labs. O APK é baixado da release oficial; não há aplicação criada neste repositório.
 
 ## Executar
@@ -26,7 +28,7 @@ O runner carrega `.env`; variáveis do processo têm prioridade. O Maestro receb
 | Usuário bloqueado | Mensagem de bloqueio e ausência do formulário de entrega. |
 | Endereço obrigatório | Formulário vazio não abre pagamento e informa o nome ausente. |
 
-Cada fluxo limpa o estado do app. `flows/helpers/` reúne carrinho e login usados por mais de um cenário. Seletores usam IDs e descrições de acessibilidade do código público da versão fixada, sem coordenadas ou sleeps.
+Cada fluxo encerra o app antes de limpar seu estado. `flows/helpers/` reúne carrinho e login usados por mais de um cenário. Seletores usam IDs e descrições de acessibilidade do código público da versão fixada, sem coordenadas ou sleeps.
 
 ## QA e evidências
 
