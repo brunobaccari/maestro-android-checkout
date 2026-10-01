@@ -34,7 +34,9 @@ Each flow stops the app before clearing state. `flows/helpers/` contains repeate
 
 [Test strategy and exploratory charter](docs/test-strategy.md), [Xray import cases](docs/xray-tests.csv), [fictional defect example](docs/defect-example.md) and [Actions runs and artifacts](https://github.com/brunobaccari/maestro-android-checkout/actions).
 
-GitHub Actions installs the APK in an Android 34 emulator and retains JUnit and screenshots. All five flows passed in the recorded CI run. No automatic flow retries. iOS, physical devices and a commercial backend are outside this result; the demo app simulates purchases. The exploratory charter and Xray import have not been executed in a tenant.
+GitHub Actions installs the APK in an Android 34 emulator. Open the run under **Actions**: **Summary** displays counts and step status; **Artifacts** contains `android-results` with JUnit, flow logs, available screenshots and a copy of the summary. Retention is seven days, including failed test runs. A missing report is marked as unconfirmed execution, never as a pass.
+
+All five flows passed in the recorded CI run. No automatic flow retries. iOS, physical devices and a commercial backend are outside this result; the demo app simulates purchases. The exploratory charter and Xray import have not been executed in a tenant.
 
 References: [official app source](https://github.com/saucelabs/my-demo-app-android/tree/2.3.0), [Maestro parameters](https://docs.maestro.dev/maestro-flows/flow-control-and-logic/parameters-and-constants) and [CI emulator action](https://github.com/ReactiveCircus/android-emulator-runner).
 

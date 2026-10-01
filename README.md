@@ -34,7 +34,9 @@ Cada fluxo encerra o app antes de limpar seu estado. `flows/helpers/` reúne car
 
 [Estratégia e exploração manual](docs/test-strategy.md), [casos para Xray](docs/xray-tests.csv), [exemplo de defeito em inglês](docs/defect-example.md) e [Execuções e artifacts no Actions](https://github.com/brunobaccari/maestro-android-checkout/actions).
 
-O GitHub Actions instala o APK em emulador Android 34 e guarda JUnit e screenshots. Falhas não são repetidas automaticamente. Não há cobertura iOS, dispositivo físico, compra real ou validação do backend comercial. O app de demonstração simula a compra.
+O GitHub Actions instala o APK em emulador Android 34. Abra a execução em **Actions**: o **Summary** mostra contagens e status; em **Artifacts**, baixe `android-results` com JUnit, logs dos fluxos, screenshots disponíveis e uma cópia do resumo. Retenção: sete dias, inclusive quando um teste falha. Relatório ausente é informado como execução não confirmada, nunca como aprovação.
+
+Falhas não são repetidas automaticamente. Não há cobertura iOS, dispositivo físico, compra real ou validação do backend comercial. O app de demonstração simula a compra.
 
 Referências: [app e código oficial](https://github.com/saucelabs/my-demo-app-android/tree/2.3.0), [parâmetros Maestro](https://docs.maestro.dev/maestro-flows/flow-control-and-logic/parameters-and-constants), [emulador no CI](https://github.com/ReactiveCircus/android-emulator-runner).
 
