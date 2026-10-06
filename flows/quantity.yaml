@@ -1,5 +1,5 @@
 appId: ${MAESTRO_APP_ID}
-name: Cart total follows item quantity
+name: Cart quantity and total survive background and resume
 ---
 - runFlow: helpers/cart.yaml
 - assertVisible:
@@ -19,6 +19,22 @@ name: Cart total follows item quantity
 - tapOn:
     id: .*:id/minusIV
 - assertVisible:
+    id: .*:id/noTV
+    text: '1'
+- assertVisible:
     id: .*:id/totalPriceTV
     text: '\$ 29\.99'
+- tapOn:
+    id: .*:id/plusIV
+- pressKey: home
+- launchApp:
+    stopApp: false
+- assertVisible: My Cart
+- assertVisible: Sauce Labs Backpack
+- assertVisible:
+    id: .*:id/noTV
+    text: '2'
+- assertVisible:
+    id: .*:id/totalPriceTV
+    text: '\$ 59\.98'
 - takeScreenshot: results/quantity
