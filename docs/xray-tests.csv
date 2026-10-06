@@ -7,3 +7,4 @@ MOB-02,Quantity updates totals,Manual,Decrease quantity to one,,Total returns to
 MOB-03,Remove last cart item,Manual,Add one backpack then remove it,,Empty state is shown and checkout action is absent
 MOB-04,Blocked account,Manual,Start checkout and log in with blocked demo account,MAESTRO_LOCKED_USER,Blocked message is displayed and shipping form is absent
 MOB-05,Required shipping fields,Manual,Log in from checkout and submit an empty shipping form,,Name validation is displayed and payment form remains absent
+MOB-02,Quantity survives background,Manual,Increase to two then press Home and resume without stopping the app,,Product and quantity remain with USD 59.98 total

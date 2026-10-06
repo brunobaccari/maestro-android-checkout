@@ -23,7 +23,7 @@ O runner carrega `.env`; variáveis do processo têm prioridade. O Maestro receb
 | Fluxo | Verificação |
 | --- | --- |
 | Checkout | Produto, subtotal de US$ 29,99, total com entrega de US$ 35,98, confirmação e carrinho vazio. |
-| Quantidade | Dois itens somam US$ 59,98; reduzir retorna a US$ 29,99. |
+| Quantidade | Dois itens somam US$ 59,98; reduzir retorna a US$ 29,99; retomar o app preserva dois itens e US$ 59,98. |
 | Remoção | Excluir o último item mostra o estado vazio. |
 | Usuário bloqueado | Mensagem de bloqueio e ausência do formulário de entrega. |
 | Endereço obrigatório | Formulário vazio não abre pagamento e informa o nome ausente. |
@@ -39,5 +39,11 @@ O GitHub Actions instala o APK em emulador Android 34. Abra a execução em **Ac
 Falhas não são repetidas automaticamente. Não há cobertura iOS, dispositivo físico, compra real ou validação do backend comercial. O app de demonstração simula a compra.
 
 Referências: [app e código oficial](https://github.com/saucelabs/my-demo-app-android/tree/2.3.0), [parâmetros Maestro](https://docs.maestro.dev/maestro-flows/flow-control-and-logic/parameters-and-constants), [emulador no CI](https://github.com/ReactiveCircus/android-emulator-runner).
+
+## Critério de bloqueio e triagem
+
+Total incorreto, conta bloqueada avançando, compra sem dados obrigatórios e carrinho inconsistente bloqueiam a execução. O cenário de quantidade também envia o app ao background e o retoma sem encerrar o processo; produto, quantidade e total precisam permanecer. Isso não cobre morte do processo, rotação ou dispositivo físico.
+
+Todos os fluxos devem passar na versão fixada do APK, com JUnit e logs disponíveis no artifact. Ao falhar, separe instalação/boot/ADB de comportamento do app; compare screenshot, log do fluxo e seletor com o código dessa release antes de mudar uma expectativa. Uma falha intermitente permanece falha até investigação; não há retry automático de fluxo.
 
 Datas de commits deste portfólio foram reorganizadas retroativamente; as execuções do Actions mantêm suas datas reais.

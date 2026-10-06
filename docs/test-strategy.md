@@ -6,7 +6,7 @@ Target: Sauce Labs My Demo App Android 2.3.0, Android 34 emulator, English local
 
 | Risk | Technique | Automated check | Manual follow-up |
 | --- | --- | --- | --- |
-| Wrong cart amount | Boundary/state transition: one → two → one | quantity.yaml | Rapid taps, upper quantity bound, rotation. |
+| Wrong cart amount | Boundary/state transition: one → two → one | quantity.yaml, including background/resume | Rapid taps, upper quantity bound, rotation, process death. |
 | Lost or duplicated order | End-to-end state transition | checkout.yaml | Background/resume on review; repeated submit. |
 | Incomplete address accepted | Invalid equivalence partition | required-shipping.yaml | Whitespace, Unicode names, keyboard navigation. |
 | Blocked account proceeds | Account-state partition | locked-user.yaml | Resume a saved session after blocking. |
@@ -18,7 +18,7 @@ Explore cart and checkout continuity while changing app state. Use only fictitio
 
 ## Release decision for this exercise
 
-All five flows must pass against the pinned APK and retain their reports. An infrastructure failure is not a product defect or a pass. Triage unexpected behavior against the pinned source and reproduce it before changing an assertion. Accessibility and lifecycle exploration remain separate from automated coverage.
+All five flows must pass against the pinned APK and retain their reports. An infrastructure failure is not a product defect or a pass. Triage unexpected behavior against the pinned source and reproduce it before changing an assertion. Accessibility, rotation and process-death exploration remain separate from the automated background/resume check.
 
 ## Defect lifecycle
 
