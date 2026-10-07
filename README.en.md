@@ -47,3 +47,5 @@ Wrong totals, blocked accounts proceeding, checkout without required data and in
 Every flow must pass against the pinned APK, with JUnit and flow logs in the artifact. Separate installation/boot/ADB problems from application behavior, then compare screenshots, flow logs and selectors with that release source before changing expectations. Intermittent failure remains a failure until investigated; flows are not automatically retried.
 
 Commit dates in this portfolio were reorganized retroactively; Actions runs retain their actual execution dates.
+
+The Actions summary lists every scenario, duration, totals and blocking reason. The gate requires the count configured in the workflow, with no failures or skips; missing or invalid JUnit fails the gate. The summary is also included in the artifact.

@@ -47,3 +47,5 @@ Total incorreto, conta bloqueada avançando, compra sem dados obrigatórios e ca
 Todos os fluxos devem passar na versão fixada do APK, com JUnit e logs disponíveis no artifact. Ao falhar, separe instalação/boot/ADB de comportamento do app; compare screenshot, log do fluxo e seletor com o código dessa release antes de mudar uma expectativa. Uma falha intermitente permanece falha até investigação; não há retry automático de fluxo.
 
 Datas de commits deste portfólio foram reorganizadas retroativamente; as execuções do Actions mantêm suas datas reais.
+
+O summary do Actions lista cada cenário, duração, totais e motivo de bloqueio. O gate exige a quantidade prevista no workflow, sem falhas ou skips; JUnit ausente ou inválido reprova. O resumo também acompanha o artifact.
